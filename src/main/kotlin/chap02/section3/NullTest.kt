@@ -17,6 +17,6 @@ fun main() {
     // not null 단정기호 !! 를 사용하여 NPE 발생시킬 수 있음.
     // println("str2: $str2 length: ${str2!!}")
 
-    val len = if(str2 !=null ) str2.length else -1
+    val len = if (str2 != null) str2.length else -1
     println("str2: $str2 length: ${len}")
 }
