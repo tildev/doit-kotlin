@@ -2,15 +2,19 @@ package chap06.section2
 
 import kotlin.properties.Delegates
 
-class User {
-    var name: String by Delegates.observable("NONAME") { // 프로퍼티 위임
-            prop, old, new -> // 람다식 매개변수로 프로퍼티, 기존 값, 새로운 값 지정
-        println("$old -> $new") // 이 부분은 이벤트가 발생할 때만 실행
-    }
-}
-
 fun main() {
-    val user = User()
-    user.name = "kildong"
-    user.name = "Dooly"
+    var max: Int by Delegates.vetoable(0) { property, oldValue, newValue ->
+        newValue > oldValue
+    }
+
+    println(max)
+    max = 10
+    println(max)
+
+    // 여기서는 기존값이 새 값보다 크므로 false. 따라서 5를 재할당하지 않음.
+    max = 5
+    println(max)
+
+    max = 11
+    println(max)
 }
