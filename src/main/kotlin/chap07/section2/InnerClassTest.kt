@@ -1,5 +1,9 @@
 package chap07.section2
 
+interface Switcher {
+    fun on(): String
+}
+
 class SmartPhone(val model: String) {
     private val cpu = "Exynos"
 
@@ -13,7 +17,12 @@ class SmartPhone(val model: String) {
         }
 
         val powerStatus = Led("Red") // 여기에서 지역 클래스가 사용됨
-        return powerStatus.blink()
+        val powerSwitch = object : Switcher {
+            override fun on(): String {
+                return powerStatus.blink()
+            }
+        }
+        return powerSwitch.on()
     } // powerOn() 블록 끝
 }
 
