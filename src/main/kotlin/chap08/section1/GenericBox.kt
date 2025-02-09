@@ -9,5 +9,11 @@ fun main() {
     val box2: Box<String> = Box<String>("Hello")
     println(box1.name)
     println(box2.name)
+
+    val box3 = Box(1) // 1 은 Int 형이므로 Box<Int> 로 추론
+    val box4 = Box("Hello") // "Hello" 는 String 형이므로 Box<String> 로 추론
+
+    println(box3.name)
+    println(box4.name)
 }
 
