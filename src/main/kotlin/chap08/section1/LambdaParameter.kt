@@ -11,6 +11,7 @@ fun <T> add(a: T, b: T, op: (T, T) -> T): T {
     return op(a, b)
 }
 
+// 람다식 매기변수를 좀 더 읽기 좋게 단순화 하기 위해서 typealias 사용
 typealias arithmetic<T> = (T, T) -> T
 
 fun <T> addAux(a: T, b: T, op: arithmetic<T>): T {
