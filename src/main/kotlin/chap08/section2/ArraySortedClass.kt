@@ -1,5 +1,7 @@
 package chap08.section2
 
+import chap08.section2.sortwith.Product
+
 data class Product(val nane: String, val price: Double)
 
 fun main() {
