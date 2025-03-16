@@ -34,4 +34,6 @@ fun main() {
     println(list.reduce { total, next -> total + next })
     println(list.reduceRight { total, next -> total + next })
 
+    println(listPair.sumOf { it.second })
+
 }
