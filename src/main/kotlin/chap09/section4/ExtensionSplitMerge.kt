@@ -6,4 +6,10 @@ fun main() {
 
     println(list1.union(list2))
     println(list1.plus(list2))
+
+    val part = list1.partition { it % 2 == 0 }
+    println(part)
+
+    val zip = list1.zip(listOf(7, 8))
+    println(zip)
 }
