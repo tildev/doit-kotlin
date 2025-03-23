@@ -6,4 +6,10 @@ fun main() {
         .map { println("map($it) "); it * it }
         .filter { println("filter($it) "); it % 2 == 0 }
     println(listDefault)
+
+    val listSeq = list1.asSequence()
+        .map { print("map($it) "); it * it }
+        .filter { println("filter($it) "); it % 2 == 0 }
+        .toList()
+    println(listSeq)
 }
