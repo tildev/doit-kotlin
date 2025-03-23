@@ -8,4 +8,9 @@ fun main() {
     println("elementAt: " + list.elementAt(1))
     println("elementAtOrElse: " + list.elementAtOrElse(10, { 2 * it }))
     println("elementAtOrNull: " + list.elementAtOrNull(10))
+
+    println("first: " + listPair.first { it.second == 200 })
+    println("last: " + listPair.last { it.second == 200 })
+    println("firstOrNull: " + listPair.firstOrNull { it.first == "E" })
+    println("lastOrNull: " + listPair.lastOrNull { it.first == "E" })
 }
