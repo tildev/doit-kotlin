@@ -11,5 +11,8 @@ fun main() {
     val printWriter = PrintWriter(file)
 
     printWriter.println(outString)
+    // File(path).printWriter().use { out -> out.println(outString) }
+    // File(path).printWriter().use { it.println(outString) }
+
     printWriter.close()
 }
