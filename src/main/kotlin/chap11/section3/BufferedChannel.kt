@@ -9,7 +9,7 @@ fun main() = runBlocking {
     val channel = Channel<Int>(3) // 버퍼 capacity 값을 줌
     val sender = launch(coroutineContext) { // 송신자 측
         repeat(10) {
-            println("Sneding $it")
+            println("Sending $it")
             channel.send(it) // 지속적으로 보내다가 꽉 차면 일시 지연
         }
     }
