@@ -4,9 +4,11 @@ import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import java.util.concurrent.atomic.AtomicInteger
 import kotlin.system.measureTimeMillis
 
-var counter = 0 // 병행 처리 중 문제가 발생할 수 있는 변수
+//var counter = 0 // 병행 처리 중 문제가 발생할 수 있는 변수
+var counter = AtomicInteger(0)
 
 @OptIn(DelicateCoroutinesApi::class)
 suspend fun massiveRun(action: suspend () -> Unit) {
@@ -25,7 +27,9 @@ suspend fun massiveRun(action: suspend () -> Unit) {
 
 fun main() = runBlocking {
     massiveRun {
-        counter++ // 증가 연산에서 값에서 무결성에 문제가 발생할 수 있음
+        //counter++ // 증가 연산에서 값에서 무결성에 문제가 발생할 수 있음
+        counter.incrementAndGet()
     }
-    println("Counter = $counter")
+    //println("Counter = $counter")
+    println("Counter = ${counter.get()}")
 }
