@@ -13,6 +13,16 @@ fun main() = runBlocking {
             channel.send(it) // 지속적으로 보내다가 꽉 차면 일시 지연
         }
     }
-    delay(1000) // 아무것도 받지 않고 1초 기다린 후
+
+    val receiver = launch {
+        repeat(10) {
+            delay(1000)
+            val value = channel.receive()
+            println("Received $value")
+        }
+    }
+
+    delay(5000)
     sender.cancel() // 송신자의 작업을 취소
+    receiver.cancel()
 }
